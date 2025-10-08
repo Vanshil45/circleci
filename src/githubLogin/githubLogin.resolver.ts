@@ -10,23 +10,32 @@ export class GithubLoginResolver {
 
   @Mutation(() => GithubAuthResponse)
   async githubLogin(): Promise<{ githubAuthUrl: string }> {
+    console.log("jjjjjjjjjjjjjjjjj")
     return await this.GithubLoginService.githubLogin();
   }
 
   @Mutation(() => AccessTokenResponse)
   async githubCodeExchange(@Args('code') code: string): Promise<AccessTokenResponse> {
+        console.log("jjjjjjjjjjjjjjjjj")
     const accessTokenResponse = await this.GithubLoginService.githubCodeExchange(code);
     return accessTokenResponse;
   }
 
   @Mutation(() => GitHubUserDetails)
   async getGithubUser(@Args('accessToken') accessToken: string): Promise<GitHubUserDetails> {
+        console.log("jjjjjjjjjjjjjjjjj")
     const githubUser = await this.GithubLoginService.getGithubUser(accessToken);
     return githubUser;
   }
 
   @Query(() => GitHubUserDetails)
   async getGithubUserDetails(@Args('userName') userName: string): Promise<GitHubUserDetails> {
+        console.log("jjjjjjjjjjjjjjjjj")
     return this.GithubLoginService.getGithubUserDetails(userName);
   }
+
+
+
+
+  
 }
