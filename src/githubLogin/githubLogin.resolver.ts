@@ -10,7 +10,6 @@ export class GithubLoginResolver {
 
   @Mutation(() => GithubAuthResponse)
   async githubLogin(): Promise<{ githubAuthUrl: string }> {
-    console.log("dataaaaaaaaaaaaaaaaaaaaaa")
     return await this.GithubLoginService.githubLogin();
   }
 
