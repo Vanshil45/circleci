@@ -3,7 +3,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 import { GraphQLJSONObject } from 'graphql-type-json';
 
-@ObjectType()      
+@ObjectType()                 
 @Schema()
 export class GitHubUserDetails extends Document {
   @Field(() => ID)
