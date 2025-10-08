@@ -10,32 +10,27 @@ export class GithubLoginResolver {
 
   @Mutation(() => GithubAuthResponse)
   async githubLogin(): Promise<{ githubAuthUrl: string }> {
-    console.log("jjjjjjjjjjjjjjjjj")
+    // console.log("Method [methodName] called with parameters: [parameters]")
     return await this.GithubLoginService.githubLogin();
   }
 
   @Mutation(() => AccessTokenResponse)
   async githubCodeExchange(@Args('code') code: string): Promise<AccessTokenResponse> {
-        console.log("jjjjjjjjjjjjjjjjj")
+    // console.log("Method [methodName] called with parameters: [parameters]")
     const accessTokenResponse = await this.GithubLoginService.githubCodeExchange(code);
     return accessTokenResponse;
   }
 
   @Mutation(() => GitHubUserDetails)
   async getGithubUser(@Args('accessToken') accessToken: string): Promise<GitHubUserDetails> {
-        console.log("jjjjjjjjjjjjjjjjj")
+    // console.log("Method [methodName] called with parameters: [parameters]")
     const githubUser = await this.GithubLoginService.getGithubUser(accessToken);
     return githubUser;
   }
 
   @Query(() => GitHubUserDetails)
   async getGithubUserDetails(@Args('userName') userName: string): Promise<GitHubUserDetails> {
-        console.log("jjjjjjjjjjjjjjjjj")
+    // console.log("Method [methodName] called with parameters: [parameters]")
     return this.GithubLoginService.getGithubUserDetails(userName);
   }
-
-
-
-
-  
 }
